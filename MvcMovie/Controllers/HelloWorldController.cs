@@ -6,16 +6,16 @@ using System.Web.Mvc;
 
 namespace MvcMovie.Controllers
 {
-    public class HelloWorldController : Controller
-    {
+    public class HelloWorldController : Controller {
         // GET: HelloWorld
-        public string Index()
-        {
-            return "The is my <b>default</b> action...";
+        public ActionResult Index() {
+            return View();
         }
 
-        public string Welcome(string name, int ID = 1) {
-            return HttpUtility.HtmlEncode("Hello " + name + ", ID: " + ID);
+        public ActionResult Welcome(string name,int numTimes) {
+            ViewBag.Message = "Hello " + name;
+            ViewBag.NumTimes = numTimes;
+            return View();
         }
     }
 }
